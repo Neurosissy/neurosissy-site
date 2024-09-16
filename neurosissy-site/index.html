@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurxsissy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Подключаем Roboto Regular и Bold */
+        
+        body {
+            font-family: 'Roboto', sans-serif; /* Установка шрифта Roboto Regular */
+            background-color: #222222;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: relative;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo {
+            max-width: 100%;
+            max-height: 80px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            position: relative;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            font-size: 32px;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        .nav-links a:hover {
+            color: #FA7BED; /* Hover color for links */
+        }
+
+        .nav-links .active {
+            color: #FA7BED;
+            font-weight: bold;
+        }
+
+        .nav-links .active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: #FA7BED;
+            border-radius: 10px; /* Установлен border-radius */
+            position: absolute;
+            bottom: -5px; /* Отступ под кнопкой меню */
+            left: 0;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            background-color: #525254;
+            padding: 10px 20px;
+            border-radius: 40px;
+            width: 311px;
+            height: 60px; /* Установлена высота 60px */
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Добавлен drop shadow */
+        }
+
+        .search-form input {
+            border: none;
+            background: none;
+            color: #A7A7A9;
+            font-size: 24px;
+            width: 100%;
+            margin-left: 10px;
+        }
+
+        .search-form button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .divider {
+            background-color: #FA7BED;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Hero section styles */
+        .hero {
+            text-align: center;
+            margin-top: 35px; /* Отступ от header до hero секции */
+        }
+
+        .hero-content p {
+            font-size: 36px;
+            margin: 0; /* Убраны отступы у параграфа */
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 50px 0; /* Отступ сверху и снизу 50px */
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #222222;
+            transition: background-color 0.3s ease; /* Smooth color transition */
+        }
+
+        .icon:hover {
+            background-color: #FA7BED; /* Hover color for social icons */
+        }
+
+        .site-navigation {
+            font-size: 24px;
+            margin-top: 50px; /* Отступ сверху 50px */
+        }
+
+        .site-navigation a {
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: color 0.3s ease; /* Smooth color transition */
+            position: relative;
+        }
+
+        .site-navigation a:hover {
+            color: #FA7BED; /* Hover color for site navigation links */
+        }
+
+        .site-navigation .active {
+            color: #FA7BED;
+            font-weight: bold;
+        }
+
+        .site-navigation .active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: #FA7BED;
+            border-radius: 10px; /* Установлен border-radius */
+            position: absolute;
+            bottom: -5px; /* Отступ под кнопкой меню */
+            left: 0;
+        }
+
+        .shop-rectangle {
+            width: 1308px;
+            height: 91px;
+            background-color: #FA7BED;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            box-sizing: border-box;
+            margin: 50px auto 0; /* Отступ сверху 50px, снизу 0, выравнивание по центру */
+            font-size: 24px;
+            border-radius: 30px; /* Добавлен border-radius */
+            font-weight: bold; /* Сделать текст жирным */
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Добавлена тень */
+        }
+
+        .shop-rectangle span {
+            margin-left: 10px; /* Отступ слева */
+        }
+
+        .filter-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 1308px;
+            margin: 40px auto 0; /* Отступ сверху 40px, снизу 0, выравнивание по центру */
+        }
+
+        .filter-container .text {
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+
+        .filter-container .sort-select {
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-container .sort-select select {
+            background-color: #525254;
+            color: #A7A7A9;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .product-cards {
+            display: flex;
+            gap: 20px; /* Отступ между карточками */
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px; /* Отступ сверху от shop-rectangle */
+        }
+
+        .product-card {
+            width: 380px; /* Установлена ширина карточек 380px */
+            height: 535px;
+            background-color: #333333; /* Цвет фона карточек (замените на нужный) */
+            border-radius: 20px; /* Уголки карточек */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Тень для карточек */
+        }
+
+        .product-card img {
+            width: 100%; /* Ширина изображения на всю ширину карточки */
+            height: auto; /* Автоматическая высота изображения */
+            border-radius: 20px; /* Радиус углов изображения */
+        }
+
+        .product-card .product-info {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .product-card .product-info h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .product-card .product-info .price {
+            font-size: 18px;
+            color: #FF3366; /* Цвет новой цены */
+            margin: 5px 0 30px; /* Отступ снизу до кнопки */
+            position: relative;
+        }
+
+        .product-card .product-info .old-price {
+            font-size: 16px;
+            color: #A7A7A9; /* Цвет старой цены */
+            text-decoration: line-through; /* Перечеркивание старой цены */
+            margin-right: 5px;
+        }
+
+        .product-card .add-to-cart {
+            background-color: #FF3366;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        .product-card .add-to-cart:hover {
+            background-color: #e96db4; /* Hover color for button */
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 30px; /* Опущена плашка ниже */
+            right: 30px;
+            background-color: #FF3366;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        footer {
+            width: 1308px;
+            height: 91px;
+            background-color: #333333; /* Темно-серый цвет футера */
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-left: 10px;
+            box-sizing: border-box;
+            margin: 50px auto 0; /* Отступ сверху 50px, снизу 0, выравнивание по центру */
+            font-size: 24px;
+            border-radius: 30px; /* Добавлен border-radius */
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Добавлена тень */
+            text-align: center; /* Центрирование текста */
+        }
+
+        footer span {
+            font-weight: normal; /* Убираем жирный шрифт */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+            <div class="logo-container">
+                <img class="logo" src="https://svgur.com/i/1APV.svg" alt="Neurxsissy Logo">
+            </div>
+            <form class="search-form">
+                <button type="submit"><img src="https://svgshare.com/i/1ANq.svg" alt="Search"></button>
+                <input type="text" placeholder="Search">
+            </form>
+        </nav>
+        <div class="divider"></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p>I'm Neurxsissy, a passionate artist, musician, and videomaker, <br>who makes content that melts your brain.</p>
+            <div class="social-icons">
+                <div class="icon"><img src="https://svgur.com/i/1ANA.svg" alt="X"></div>
+                <div class="icon"><img src="https://svgur.com/i/1APA.svg" alt="Telegram"></div>
+                <div class="icon"><img src="https://svgur.com/i/1AQ1.svg" alt="Soundcloud"></div>
+            </div>
+            <div class="site-navigation">
+                <a href="#" class="active">Music</a> | 
+                <a href="#">PMVs</a> | 
+                <a href="#">Arts</a> | 
+                <a href="#">Merch</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="shop-rectangle">
+            <span>Shop</span>
+        </div>
+        <div class="filter-container">
+            <div class="text">Showing all 2 results</div>
+            <div class="sort-select">
+                <select>
+                    <option>Default sorting</option>
+                    <!-- Add more options here if needed -->
+                </select>
+            </div>
+        </div>
+        <div class="product-cards">
+            <div class="product-card">
+                <div class="sale-badge">Sale</div>
+                <img src="https://via.placeholder.com/380x380" alt="Product Image">
+                <div class="product-info">
+                    <h3>Product 1</h3>
+                    <p class="price">$29.99 <span class="old-price">$39.99</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="sale-badge">Sale</div>
+                <img src="https://via.placeholder.com/380x380" alt="Product Image">
+                <div class="product-info">
+                    <h3>Product 2</h3>
+                    <p class="price">$39.99 <span class="old-price">$49.99</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="sale-badge">Sale</div>
+                <img src="https://via.placeholder.com/380x380" alt="Product Image">
+                <div class="product-info">
+                    <h3>Product 3</h3>
+                    <p class="price">$49.99 <span class="old-price">$59.99</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>© Copyright 2024</span><br>
+        <span>Design by Neurxsissy</span>
+    </footer>
+</body>
+</html>

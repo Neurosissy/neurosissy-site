@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurxsissy | Product Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #222222;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: relative;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo {
+            max-width: 100%;
+            max-height: 80px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            position: relative;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            font-size: 32px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FA7BED;
+        }
+
+        .nav-links .active {
+            color: #FA7BED;
+            font-weight: bold;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            background-color: #525254;
+            padding: 10px 20px;
+            border-radius: 40px;
+            width: 311px;
+            height: 60px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        .search-form input {
+            border: none;
+            background: none;
+            color: #A7A7A9;
+            font-size: 24px;
+            width: 100%;
+            margin-left: 10px;
+        }
+
+        .search-form button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .divider {
+            background-color: #FA7BED;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Product Section */
+        .product-page {
+            max-width: 1308px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+        }
+
+        .product-image {
+            flex: 1;
+            max-width: 600px;
+            position: relative; /* Ensure positioning context for child elements */
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .product-details {
+            flex: 1;
+            text-align: left;
+        }
+
+        .product-details h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .product-details .price {
+            font-size: 24px;
+            color: #FF3366;
+            margin-bottom: 20px;
+        }
+
+        .product-details .old-price {
+            font-size: 18px;
+            color: #A7A7A9;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .product-details p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .add-to-cart {
+            background-color: #FF3366;
+            color: #FFFFFF;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e96db4;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/">Products</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+            <div class="logo-container">
+                <img class="logo" src="https://svgur.com/i/1APV.svg" alt="Neurxsissy Logo">
+            </div>
+            <form class="search-form">
+                <button type="submit"><img src="https://svgshare.com/i/1ANq.svg" alt="Search"></button>
+                <input type="text" placeholder="Search">
+            </form>
+        </nav>
+        <div class="divider"></div>
+    </header>
+
+    <section class="product-page">
+        <div class="product-image">
+            <img src="https://via.placeholder.com/600x600" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1>Product Name</h1>
+            <p class="price">
+                <span class="old-price">$49.99</span> $39.99
+            </p>
+            <p>
+                This is an amazing product that will transform your life. With its unique design and unmatched performance, it is a must-have for anyone looking to make a statement.
+            </p>
+            <link href="https://api.cryptocloud.plus/static/widget/v2/css/app.css" rel="stylesheet" >
+            <vue-widget shop_id="jlFQrNpSaKdXeWk8" api_key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiTWpJME9UST0iLCJ0eXBlIjoicHJvamVjdCIsInYiOiI0MGJhZmZkMWY2ZTU2NjE5YjFiOGFkOTcxNWM0NzgzYzA2YjI2NjQwMzM1MzNiYjBmMDdmODA2MWE2MmE0ZGY1IiwiZXhwIjo4ODExODAzNTAzOH0.mVumOiEmWa9zSjx-iWCaUqHqe_FuV08Hd3-lFOah-Yw" currency="USD" amount="3.99" locale="en" ></vue-widget>
+            <script src="https://api.cryptocloud.plus/static/widget/v2/js/app.js" ></script >
+        </div>
+    </section>
+
+    <footer>
+        <span>© Copyright 2024</span><br>
+        <span>Design by Neurxsissy</span>
+    </footer>
+</body>
+</html>
